@@ -1,17 +1,29 @@
 {
-  "name": "bro-trip",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.3.0",
-    "vue": "^3.5.27",
-    "vue-router": "^4.6.4"
-  }
+    "name": "bro-trip",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@nuxt/icon": "^2.2.1",
+        "@nuxtjs/tailwindcss": "^6.14.0",
+        "@tailwindcss/vite": "^4.1.18",
+        "nuxt": "^4.3.0",
+        "tailwindcss": "^4.1.18",
+        "vue": "^3.5.27",
+        "vue-router": "^4.6.4"
+    },
+    "devDependencies": {
+        "@oxc-minify/binding-darwin-arm64": "^0.111.0",
+        "@oxc-parser/binding-darwin-arm64": "^0.111.0",
+        "@oxc-resolver/binding-darwin-arm64": "^11.17.0",
+        "@oxc-transform/binding-darwin-arm64": "^0.111.0",
+        "autoprefixer": "^10.4.24",
+        "postcss": "^8.5.6"
+    }
 }

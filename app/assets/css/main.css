@@ -1,0 +1,239 @@
+@config "../../../tailwind.config.ts";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'tailwindcss';
+
+@layer base {
+    html {
+        @apply antialiased;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    body {
+        @apply bg-dark text-text-primary font-sans;
+    }
+
+    /* Custom scrollbar for dark mode */
+    ::-webkit-scrollbar {
+        @apply w-2 h-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-dark-100;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-dark-300 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-dark-400;
+    }
+}
+
+@layer components {
+    /* Card styles */
+    .card {
+        @apply bg-dark-200 rounded-2xl p-4 shadow-card transition-all duration-200;
+    }
+
+    .card-hover {
+        @apply hover:shadow-card-hover hover:scale-[1.02];
+    }
+
+    .card-accepted {
+        @apply border-2 border-hype shadow-hype animate-glow;
+    }
+
+    .card-rejected {
+        @apply opacity-50 grayscale border border-dark-300;
+    }
+
+    .card-draggable {
+        @apply cursor-grab active:cursor-grabbing;
+    }
+
+    /* Button styles */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5
+           font-medium transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark;
+    }
+
+    .btn-primary {
+        @apply bg-hype text-dark hover:bg-hype-light focus:ring-hype;
+    }
+
+    .btn-secondary {
+        @apply bg-dark-300 text-text-primary hover:bg-dark-400 focus:ring-dark-400;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent text-text-secondary hover:bg-dark-200 hover:text-text-primary;
+    }
+
+    .btn-icon {
+        @apply p-2.5 rounded-full;
+    }
+
+    /* Input styles */
+    .input {
+        @apply w-full bg-dark-100 border border-dark-300 rounded-xl px-4 py-3
+           text-text-primary placeholder:text-text-muted
+           focus:outline-none focus:border-hype focus:ring-1 focus:ring-hype
+           transition-colors duration-200;
+    }
+
+    /* Vote button styles */
+    .vote-btn {
+        @apply flex items-center gap-1.5 px-3 py-1.5 rounded-full
+           bg-dark-300 transition-all duration-200
+           hover:scale-105 active:scale-95;
+    }
+
+    .vote-btn-hype {
+        @apply hover:bg-hype/20 hover:text-hype;
+    }
+
+    .vote-btn-hype.active {
+        @apply bg-hype/30 text-hype;
+    }
+
+    .vote-btn-trash {
+        @apply hover:bg-trash/20 hover:text-trash;
+    }
+
+    .vote-btn-trash.active {
+        @apply bg-trash/30 text-trash;
+    }
+
+    /* Navigation styles */
+    .nav-item {
+        @apply flex flex-col items-center gap-1 px-4 py-2 rounded-xl
+           text-text-muted transition-colors duration-200;
+    }
+
+    .nav-item-active {
+        @apply text-hype bg-hype/10;
+    }
+
+    .nav-item:not(.nav-item-active):hover {
+        @apply text-text-secondary bg-dark-200;
+    }
+
+    /* Badge styles */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-hype {
+        @apply bg-hype/20 text-hype;
+    }
+
+    .badge-trash {
+        @apply bg-trash/20 text-trash;
+    }
+
+    .badge-neutral {
+        @apply bg-dark-300 text-text-secondary;
+    }
+
+    /* Avatar styles */
+    .avatar {
+        @apply rounded-full object-cover ring-2 ring-dark-200;
+    }
+
+    .avatar-sm {
+        @apply w-6 h-6;
+    }
+
+    .avatar-md {
+        @apply w-8 h-8;
+    }
+
+    .avatar-lg {
+        @apply w-10 h-10;
+    }
+
+    /* Countdown styles */
+    .countdown-unit {
+        @apply flex flex-col items-center;
+    }
+
+    .countdown-value {
+        @apply text-4xl md:text-5xl font-bold text-hype tabular-nums;
+    }
+
+    .countdown-label {
+        @apply text-xs text-text-muted uppercase tracking-wider;
+    }
+
+    /* Kanban styles */
+    .kanban-column {
+        @apply flex-shrink-0 w-72 bg-dark-100 rounded-2xl p-3;
+    }
+
+    .kanban-header {
+        @apply text-sm font-semibold text-text-secondary mb-3 px-1;
+    }
+
+    .kanban-cards {
+        @apply flex flex-col gap-2 min-h-[200px];
+    }
+
+    /* Checklist styles */
+    .checklist-item {
+        @apply flex items-center gap-3 p-3 rounded-xl bg-dark-100
+           transition-colors duration-200 hover:bg-dark-200;
+    }
+
+    .checklist-checkbox {
+        @apply w-5 h-5 rounded-md border-2 border-dark-400
+           checked:bg-hype checked:border-hype
+           focus:ring-2 focus:ring-hype focus:ring-offset-2 focus:ring-offset-dark;
+    }
+
+    /* Map marker avatar */
+    .map-marker {
+        @apply relative;
+    }
+
+    .map-marker-avatar {
+        @apply w-10 h-10 rounded-full border-3 border-white shadow-lg;
+    }
+
+    .map-marker-pin {
+        @apply absolute -bottom-2 left-1/2 -translate-x-1/2
+           w-0 h-0 border-l-[8px] border-r-[8px] border-t-[10px]
+           border-l-transparent border-r-transparent border-t-white;
+    }
+}
+
+@layer utilities {
+    /* Safe area for mobile */
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .pt-safe {
+        padding-top: env(safe-area-inset-top);
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Text gradient */
+    .text-gradient-hype {
+        @apply bg-gradient-to-r from-hype to-hype-light bg-clip-text text-transparent;
+    }
+}
