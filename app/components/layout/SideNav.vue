@@ -17,6 +17,8 @@ const navItems = [
 ];
 
 const isActive = (path: string) => route.path === path;
+
+const handleLogout = () => {};
 </script>
 
 <template>
@@ -46,5 +48,18 @@ const isActive = (path: string) => route.path === path;
                 <span class="text-[10px] font-medium">{{ item.label }}</span>
             </NuxtLink>
         </div>
+
+        <!-- Logout Button -->
+        <button
+            class="nav-item w-14 text-trash/70 hover:text-trash hover:bg-trash/10"
+            title="Logout"
+            @click="handleLogout"
+        >
+            <Icon
+                name="heroicons:arrow-right-on-rectangle-solid"
+                class="w-6 h-6"
+            />
+            <span class="text-[10px] font-medium">Logout</span>
+        </button>
     </nav>
 </template>
